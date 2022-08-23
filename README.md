@@ -25,7 +25,7 @@ Most likely there are other more impactful variables and factors that were not
 captured in the dataset that contribute to the mpg variability of the MechaCar
 prototypes.
 
-![1](.images/1.png)
+![1](./images/1.png)
 
 Summary Statistics on Suspension Coils
 --------------------------------------
