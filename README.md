@@ -1,51 +1,79 @@
-# MechaCar_Statistical_Analysis
+MechaCar_Statistical_Analysis
+=============================
 
-<img width="937" alt="Screen Shot 2022-08-19 at 6 33 30 PM" src="https://user-images.githubusercontent.com/103215686/185722381-0bba1dc1-687b-4929-ab54-0da95544a5bb.png">
+Linear Regression to Predict MPG
+--------------------------------
 
+In the MechaCar dataset, ground_clearance and vehicle_length provided non-random
+amount of variance to the mpg values.
 
-## Linear Regression to Predict MPG
+In addition, there is evidence that vehicle_weight may have also provided a
+slight amount of variance to the mpg values, but this is not significant (if we
+use a significance level of 0.05).
 
-- Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset? Ground clearance and mpg
-- Is the slope of the linear model considered to be zero? Yes
-- Does this linear model predict mpg of MechaCar prototypes effectively? No
+According to the multiple linear regression model, the slope of the linear model
+is not considered to be zero because the p-value of the hypothesis test was
+5.35e-11, which is smaller than the 0.05 significance level.
 
-<img width="565" alt="Screen Shot 2022-08-19 at 6 30 23 PM" src="https://user-images.githubusercontent.com/103215686/185722303-1a81391e-8f19-4043-8f35-be51187b8f4a.png">
+The multiple regression model does an adequate job of predicting the mpg of
+MechaCar prototypes because the multiple r-squared value was 0.71.
 
-## Summary Statistics on Suspension Coils
+Which means that roughly 71% of the time the model will predict mpg values
+correctly.
 
-Total_Summary: get the mean, median, variance, and standard deviation of the suspension coil’s PSI column.
+Most likely there are other more impactful variables and factors that were not
+captured in the dataset that contribute to the mpg variability of the MechaCar
+prototypes.
 
-<img width="424" alt="Screen Shot 2022-08-19 at 6 56 41 PM" src="https://user-images.githubusercontent.com/103215686/185723204-ac6b64b4-a2de-406d-836f-12473e9c0e44.png">
+Summary Statistics on Suspension Coils
+--------------------------------------
 
-Lot_Summary: group each manufacturing lot by the mean, median, variance, and standard deviation of the suspension coil’s PSI column.
+Across the suspension coil manufacturing lots, Lot 1 and Lot 2 are both within
+design specifications, and both have the same calculated mean and median.
 
-<img width="579" alt="Screen Shot 2022-08-19 at 6 57 13 PM" src="https://user-images.githubusercontent.com/103215686/185723217-4f9c02a1-27de-4237-93c7-1cbe4ec90bc3.png">
+However, Lot 3 is far more variable than the other manufacturing lots.
 
-The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Yes, the data meets this specification. The variance was less than 100 pounds.
+Lot 3 has a calculated variance that exceeds the manufacturing specs.
 
-## T-Tests on Suspension Coils
+If we combine all three lots and look at the total data, the overall calculated
+variance is within specifications.
 
-Below are the screenshots of the t-test:
-<img width="444" alt="Screen Shot 2022-08-22 at 1 24 07 PM" src="https://user-images.githubusercontent.com/103215686/186002363-6241c0a1-6157-4514-a747-82616e347b32.png">
+T-Tests on Suspension Coils
+---------------------------
 
-<img width="486" alt="Screen Shot 2022-08-22 at 1 24 20 PM" src="https://user-images.githubusercontent.com/103215686/186002381-32bb45b9-13b3-4ab5-8053-5aae0174ce7d.png">
+According to each of the one-sample t-tests, Lot 1 and Lot 2 PSI values are not
+statistically different from the population mean.
 
-<img width="486" alt="Screen Shot 2022-08-22 at 1 24 29 PM" src="https://user-images.githubusercontent.com/103215686/186002403-108ead5c-e34a-493b-acec-89fd1a8c3655.png">
+However the p-value of Lot 3 is 0.041 which is below the significance level,
+which means there is evidence that the Lot 3 mean suspension coil PSI is
+statistically different from the population mean.
 
-<img width="486" alt="Screen Shot 2022-08-22 at 1 24 36 PM" src="https://user-images.githubusercontent.com/103215686/186002418-0d840313-34dc-4cfe-a4ab-aaaa3382ea25.png">
+ 
 
+Study Design: MechaCar vs Competition
+-------------------------------------
 
+One metric that people are interested in when it comes to vehicles is
+horsepower.
 
-## Study Design: MechaCar vs Competition
+Horsepower is a common performance metric that is reported alongside car
+fuel-efficiency and engine size.
 
-Write a short description of a statistical study that can quantify how the MechaCar performs against the competition. In your study design, think critically about what metrics would be of interest to a consumer: for a few examples, cost, city or highway fuel efficiency, horse power, maintenance cost, or safety rating.
+Therefore it would be really easy to collect horsepower data for a large number
+of vehicles.
 
-The metric that I would test is cost and fuel efficiency compared to the competition. I would use a T-test for this study and would need cost and fuel efficiency data from MechaCar and it's closest competitor.
+We can create a study that tests whether or not the horsepower of MechaCar is
+statistically different from a collection of other comparable vehicles.
 
-H0: There is no statistical difference between the MechaCar data and the competitor data.
+The null hypothesis would be that there is no statistical difference between
+MechaCar horsepower and the horsepower of all other comparable vehicles.
 
-Ha: There is a statistical difference between the MechaCar data and the competitor data.
+The alternative hypothesis would be that there is a statistical difference
+between horsepower of MechaCar versus the other vehicles.
 
+The statistical test we can use is a one-sample t-test, where the population
+data will be all comparable vehicles.
 
-
-
+To test this, we will need multiple horsepower data points from vehicles as well
+as multiple data points from the MechaCar vehicles, so it will be important that
+we include the horsepower of multiple vehicle configurations.
